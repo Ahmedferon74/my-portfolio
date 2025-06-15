@@ -5,13 +5,14 @@ import myProfile from "../images/my-profile.jpg";
 import {
   FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp,
   FaFacebook, FaInstagram, FaTelegram, FaPhone, FaDownload,
-  FaSun, FaMoon,
+  FaSun, FaMoon, FaMobileAlt, FaDesktop
 } from "react-icons/fa";
 
 export default function CV() {
   const [visible, setVisible] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
   const [language, setLanguage] = useState("en");
+  const [mobilePreview, setMobilePreview] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 100);
@@ -60,7 +61,7 @@ export default function CV() {
   };
 
   return (
-    <div className={`cv-container ${visible ? "fade-in" : ""}`} dir={language === "ar" ? "rtl" : "ltr"}>
+    <div className={`cv-container ${visible ? "fade-in" : ""} ${mobilePreview ? "mobile-preview" : ""}`} dir={language === "ar" ? "rtl" : "ltr"}>
       <nav className="navbar slide-up">
         <div className="nav-left">
           <img src={myProfile} alt="Ahmed Karam" className="nav-profile-pic" />
@@ -88,6 +89,10 @@ export default function CV() {
 
           <button className="fireworks-toggle-btn" onClick={launchFireworks} style={{ marginLeft: "10px" }}>
             🎆 {language === "ar" ? "تشغيل التأثير" : "Launch Effect"}
+          </button>
+
+          <button className="device-toggle-btn" onClick={() => setMobilePreview(!mobilePreview)} style={{ marginLeft: "10px" }}>
+            {mobilePreview ? <FaDesktop /> : <FaMobileAlt />} {language === "ar" ? (mobilePreview ? "وضع الكمبيوتر" : "وضع الهاتف") : (mobilePreview ? "Desktop View" : "Mobile View")}
           </button>
 
           <button className="download-btn" onClick={handleDownload}>

@@ -1,16 +1,23 @@
-/* الوضع الليلي والنهاري */
+/* CV.css */
+/* تم إعداد هذا الملف بعناية لتوفير تصميم ثنائي الوضع (Mobile/Desktop)
+   مع تغييرات دقيقة في المقاسات بين الأوضاع */
+
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* الوضع الليلي والنهاري - Body */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
 body.dark-mode {
   background-color: #000;
   color: #fff;
-  background:
+  background-image:
     radial-gradient(white 1px, transparent 1px),
     radial-gradient(white 1px, transparent 1px);
   background-size: 20px 20px, 20px 20px;
   background-position: 0 0, 10px 10px;
   animation: sparkle 30s linear infinite;
-  background-attachment: fixed;
   margin: 0;
   padding: 0;
+  background-attachment: fixed;
 }
 
 body.light-mode {
@@ -21,16 +28,19 @@ body.light-mode {
   background-attachment: fixed;
 }
 
-/* تأثير الخلفية المتلألئة */
 @keyframes sparkle {
   from { background-position: 0 0, 10px 10px; }
   to { background-position: 1000px 1000px, 1010px 1010px; }
 }
 
-/* تأثير المفرقعات */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* تأثير الألعاب النارية */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
 .fireworks-container {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   pointer-events: none;
@@ -59,7 +69,10 @@ body.light-mode {
   }
 }
 
-/* عزل الجزء الأمامي بالكامل */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* الحاوية الرئيسية - Dark Mode */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
 .cv-container {
   background-color: rgba(15, 15, 40, 0.95);
   padding: 40px;
@@ -69,9 +82,12 @@ body.light-mode {
   box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
   color: #aef4ff !important;
   transition: all 0.5s ease-in-out;
-  -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
+
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* الحاوية الرئيسية - Light Mode */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
 
 body.light-mode .cv-container {
   background-color: rgba(255, 255, 255, 0.95);
@@ -79,7 +95,10 @@ body.light-mode .cv-container {
   box-shadow: 0 0 30px rgba(0, 0, 255, 0.15);
 }
 
-/* فرض لون النص داخل cv-container */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* جميع العناصر داخل CV - Dark Mode */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
 .cv-container h1,
 .cv-container h2,
 .cv-container h3,
@@ -89,6 +108,10 @@ body.light-mode .cv-container {
 .cv-container a {
   color: #aef4ff !important;
 }
+
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* جميع العناصر داخل CV - Light Mode */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
 
 body.light-mode .cv-container h1,
 body.light-mode .cv-container h2,
@@ -100,7 +123,10 @@ body.light-mode .cv-container a {
   color: #222 !important;
 }
 
-/* شريط التنقل */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* شريط التنقل - Dark Mode */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
 .navbar {
   display: flex;
   align-items: center;
@@ -116,7 +142,10 @@ body.light-mode .navbar {
   border-color: #222;
 }
 
-/* صورة البروفايل */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* صورة البروفايل - Mobile & Desktop */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
 .nav-profile-pic {
   width: 120px;
   height: 160px;
@@ -127,16 +156,22 @@ body.light-mode .navbar {
   transition: all 0.5s ease-in-out;
 }
 
+.mobile-preview .nav-profile-pic {
+  width: 100px;
+  height: 130px;
+  border-radius: 10px;
+}
+
 .nav-profile-pic:hover {
-  box-shadow:
-    0 0 15px #0ff,
-    0 0 30px #0ff,
-    0 0 50px #00ffff;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 50px #00ffff;
   transform: scale(1.05);
   cursor: pointer;
 }
 
+/* :::::::::::::::::::::::::::::::::::::::::::: */
 /* معلومات البروفايل */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
 .nav-right {
   flex: 3;
   text-align: center;
@@ -149,7 +184,7 @@ body.light-mode .navbar {
   text-shadow: 0 0 8px #fff;
 }
 
-body.light-mode .nav-name {
+.body-light .nav-name {
   color: #111;
   text-shadow: none;
 }
@@ -160,11 +195,14 @@ body.light-mode .nav-name {
   color: #ccc;
 }
 
-body.light-mode .nav-title {
+.body-light .nav-title {
   color: #555;
 }
 
+/* :::::::::::::::::::::::::::::::::::::::::::: */
 /* روابط التنقل */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
 .nav-links {
   list-style: none;
   padding: 0;
@@ -182,7 +220,7 @@ body.light-mode .nav-title {
   transition: color 0.3s;
 }
 
-body.light-mode .nav-links li a {
+.body-light .nav-links li a {
   color: #222;
 }
 
@@ -196,7 +234,7 @@ body.light-mode .nav-links li a {
   transform-origin: left;
 }
 
-body.light-mode .nav-links li a::after {
+.body-light .nav-links li a::after {
   background: #222;
 }
 
@@ -205,35 +243,19 @@ body.light-mode .nav-links li a::after {
   animation: pulse 1.5s infinite alternate;
 }
 
-/* زر التحميل */
-.download-btn {
-  margin-top: 10px;
-  background-color: #0ff;
-  color: #000;
-  padding: 8px 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+.nav-links li a:hover::after {
+  transform: scaleX(1);
 }
 
-.download-btn:hover {
-  background-color: #00dddd;
-  transform: scale(1.05);
-}
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* زر التنزيل + زر الوضع الليلي/نهارى */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
 
-/* -- مجموعة الأزرار بجانب زر التحميل -- */
-.button-group-right {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-top: 10px;
-}
-
-/* أزرار التبديل والتأثيرات بنفس تنسيق زر التحميل */
+.download-btn,
+.device-toggle-btn,
 .lang-toggle-btn,
-.fireworks-toggle-btn {
+.fireworks-toggle-btn,
+.view-toggle-btn {
   background-color: #0ff;
   color: #000;
   padding: 8px 16px;
@@ -242,69 +264,189 @@ body.light-mode .nav-links li a::after {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
 }
 
+.download-btn:hover,
+.device-toggle-btn:hover,
+.lang-toggle-btn:hover,
 .fireworks-toggle-btn:hover,
-.lang-toggle-btn:hover {
+.view-toggle-btn:hover {
   background-color: #00dddd;
   transform: scale(1.05);
 }
 
-body.light-mode .lang-toggle-btn,
-body.light-mode .fireworks-toggle-btn {
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* زر الألعاب النارية - Fireworks Button */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
+.fireworks-toggle-btn {
+  background: linear-gradient(45deg, #00f, #0ff, #0f4);
+  color: #fff;
+  padding: 8px 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fireworks-toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -25%;
+  width: 150%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.4);
+  transform: rotate(45deg);
+  animation: shine 2s infinite linear;
+}
+
+@keyframes shine {
+  0% { left: -25%; }
+  100% { left: 125%; }
+}
+
+.fireworks-toggle-btn:hover {
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+}
+
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* دعم Light Mode لأزرار التحكم */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
+.body-light .lang-toggle-btn,
+.body-light .fireworks-toggle-btn,
+.body-light .view-toggle-btn,
+.body-light .device-toggle-btn,
+.body-light .download-btn {
   background-color: #0ff;
   color: #000;
 }
 
-body.light-mode .lang-toggle-btn:hover,
-body.light-mode .fireworks-toggle-btn:hover {
+.body-light .lang-toggle-btn:hover,
+.body-light .fireworks-toggle-btn:hover,
+.body-light .view-toggle-btn:hover,
+.body-light .device-toggle-btn:hover,
+.body-light .download-btn:hover {
   background-color: #00dddd;
 }
 
-/* تجميع أزرار التحميل والتبديل في صف واحد */
-.download-and-buttons {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 15px;
-  margin-top: 10px;
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* إطار افتراضي لهاتف */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
+.mobile-preview {
+  border: 10px solid #333;
+  border-radius: 40px;
+  margin: 40px auto;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  position: relative;
+  max-width: 400px;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
 }
 
-/* الحركات */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.mobile-preview::before {
+  content: '📱';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #fff;
 }
 
-@keyframes pulse {
-  from {
-    text-shadow: 0 0 5px #0ff;
-    transform: scale(1);
-  }
-  to {
-    text-shadow: 0 0 15px #0ff;
-    transform: scale(1.1);
-  }
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* أبعاد دقيقة لكل عنصر عند Mobile */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
+.mobile-view .nav-name {
+  font-size: 1.4rem;
 }
 
-@keyframes pulse {
-  from {
-    text-shadow: 0 0 5px #0ff;
-    transform: scale(1);
-  }
-  to {
-    text-shadow: 0 0 15px #0ff;
-    transform: scale(1.1);
-  }
+.mobile-view .nav-title {
+  font-size: 1rem;
 }
 
-/* ✨ Media Queries - Responsive Adjustments */
+.mobile-view .nav-links {
+  gap: 10px;
+}
+
+.mobile-view .nav-links li a {
+  font-size: 0.9rem;
+}
+
+.mobile-view .nav-links li a::after {
+  height: 1.5px;
+}
+
+.mobile-view .social-icons a {
+  font-size: 0.9rem;
+  padding: 6px 10px;
+}
+
+.mobile-view .download-btn,
+.mobile-view .lang-toggle-btn,
+.mobile-view .fireworks-toggle-btn,
+.mobile-view .view-toggle-btn,
+.mobile-view .device-toggle-btn {
+  font-size: 0.9rem;
+  padding: 6px 10px;
+}
+
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* أبعاد دقيقة لكل عنصر عند Desktop */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
+.desktop-view .nav-name {
+  font-size: 2rem;
+}
+
+.desktop-view .nav-title {
+  font-size: 1.2rem;
+}
+
+.desktop-view .nav-links {
+  gap: 20px;
+}
+
+.desktop-view .nav-links li a {
+  font-size: 1rem;
+}
+
+.desktop-view .nav-links li a::after {
+  height: 2px;
+}
+
+.desktop-view .social-icons a {
+  font-size: 1.1rem;
+  padding: 8px 12px;
+}
+
+.desktop-view .download-btn,
+.desktop-view .lang-toggle-btn,
+.desktop-view .fireworks-toggle-btn,
+.desktop-view .view-toggle-btn,
+.desktop-view .device-toggle-btn {
+  font-size: 1rem;
+  padding: 8px 16px;
+}
+
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+/* تنسيق الهواتف الصغيرة */
+/* :::::::::::::::::::::::::::::::::::::::::::: */
+
 @media (max-width: 768px) {
   .cv-container {
     padding: 20px;
@@ -330,47 +472,18 @@ body.light-mode .fireworks-toggle-btn:hover {
     gap: 10px;
   }
 
-  .download-and-buttons {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .button-group-right {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
-}
-@media (max-width: 768px) {
-  .cv-container {
-    padding: 20px;
-    margin: 20px 10px;
-    border-radius: 12px;
-  }
-  .nav-profile-pic {
-    width: 90px;
-    height: 120px;
-  }
-  .nav-name {
-    font-size: 1.5rem;
-  }
-  .nav-title {
-    font-size: 1rem;
-  }
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
   .download-and-buttons,
   .button-group-right {
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
   }
+
   .download-btn,
   .lang-toggle-btn,
-  .fireworks-toggle-btn {
+  .fireworks-toggle-btn,
+  .view-toggle-btn,
+  .device-toggle-btn {
     width: 100%;
   }
 }
